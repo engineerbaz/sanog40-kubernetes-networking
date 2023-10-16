@@ -9,6 +9,10 @@ The lab systems provided for in-person participants are Ubuntu 20.04 cloud insta
 
 Let's get started networking!!
 
+N.B. The lab steps below show you commands to run and sample output from a demo system. Read the lab steps carefully as you will need to change many commands to use your own IP addresses, pod names, etc., all of which will be different from those shown in the lab examples.
+
+1. Pod Networking
+To begin our Kubernetes networking journey we'll need to setup a Kubernetes cluster to work with.
 
 
 
