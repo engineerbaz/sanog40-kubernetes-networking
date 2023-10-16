@@ -58,3 +58,15 @@ and exposing now
 
 `kubectl expose deployment sanogweb --port=80`
 
+Run a client Pod interactively:
+
+`kubectl run -it client --image busybox`
+
+Now try hitting the website service by name: *sanogweb*
+
+`wget -qO - website`
+
+
+
+
+
