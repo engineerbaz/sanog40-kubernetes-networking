@@ -3,7 +3,7 @@
 Let's explore the operation of a basic service. To begin create a set of three pods running the httpd web server:
 
 `
-kubectl create deployment website --replicas=3 --image=httpd
+kubectl create deployment websanog --replicas=4 --image=httpd
 `
 
 Display the Deployment and the pods it created:
@@ -21,14 +21,40 @@ Here is file
 apiVersion: v1
 kind: Service
 metadata:
-  name: website
+  name: websanog
 spec:
   ports:
   - port: 80
     name: http
   selector:
-    app: website
+    app: websanog
 ```
 
 Run 
 `kubectl apply -f service.yaml`
+
+List your service:
+`kubectl get service`
+and 
+`kubectl get endpoints`
+
+Use curl to any IP
+`curl 10.114.14.14`
+
+Scale, Scale 
+
+`kubectl scale deployment websanog --replicas=4`
+
+
+### Using DNS
+
+Most Kubernetes distributions use CoreDNS as the "built-in" DNS service for Kubernetes. The Kubernetes DNS can be used to automatically resolve a service name to it's ClusterIP. Let's try it with our website service!
+
+Create a website Deployment and service:
+
+`kubectl create deployment sanogweb --replicas=3 --image=httpd
+
+and exposing now 
+
+`kubectl expose deployment sanogweb --port=80`
+
